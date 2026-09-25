@@ -1,0 +1,714 @@
+[
+  {
+    "campaign": "dep:spring-boot",
+    "kind": "dependency",
+    "severity": "CRITICAL",
+    "sla_days": 15,
+    "findings": 72,
+    "repos": [
+      "ota-campaign-service",
+      "warranty-claims-api"
+    ],
+    "repos_without_tests": [
+      "warranty-claims-api"
+    ],
+    "repos_without_owner": [
+      "warranty-claims-api"
+    ],
+    "ids": [
+      "CVE-2016-1000027",
+      "CVE-2022-45143",
+      "CVE-2023-20860",
+      "CVE-2023-20863",
+      "CVE-2023-20883",
+      "CVE-2023-24998",
+      "CVE-2023-34053",
+      "CVE-2023-46589",
+      "CVE-2024-22243",
+      "CVE-2024-22259",
+      "CVE-2024-22262",
+      "CVE-2024-34750",
+      "CVE-2024-38286",
+      "CVE-2024-38816",
+      "CVE-2024-38819",
+      "CVE-2024-50379",
+      "CVE-2024-56337",
+      "CVE-2025-22235",
+      "CVE-2025-24813",
+      "CVE-2025-41249",
+      "CVE-2025-48988",
+      "CVE-2025-48989",
+      "CVE-2025-52520",
+      "CVE-2025-53506",
+      "CVE-2025-55752",
+      "CVE-2026-24734",
+      "CVE-2026-24880",
+      "CVE-2026-34483",
+      "CVE-2026-34487",
+      "CVE-2026-40973",
+      "CVE-2026-41284",
+      "CVE-2026-41293",
+      "CVE-2026-41842",
+      "CVE-2026-41845",
+      "CVE-2026-41850",
+      "CVE-2026-42498",
+      "CVE-2026-43512",
+      "CVE-2026-43513",
+      "CVE-2026-43515",
+      "CVE-2026-65182",
+      "CVE-2026-65905",
+      "CVE-2026-68525"
+    ],
+    "fixed_versions": [
+      "10.1.5, 11.0.0-M5, 8.5.88, 9.0.71",
+      "11.0.0-M11, 10.1.16, 9.0.83, 8.5.96",
+      "11.0.0-M21, 10.1.25, 9.0.90",
+      "11.0.10, 10.1.44, 9.0.108",
+      "11.0.11, 10.1.45, 9.0.109",
+      "11.0.18, 10.1.52, 9.0.115",
+      "11.0.2, 10.1.34, 9.0.98",
+      "11.0.25, 10.1.58, 9.0.121",
+      "11.0.3, 10.1.35, 9.0.99",
+      "11.0.8, 10.1.42, 9.0.106",
+      "11.0.9, 10.1.43, 9.0.107",
+      "3.0.7, 2.7.12, 2.6.15, 2.5.15",
+      "3.3.11, 3.4.5",
+      "4.0.6, 3.5.14",
+      "5.3.34, 6.0.19, 6.1.6",
+      "6.0.0",
+      "6.0.14",
+      "6.0.7, 5.3.26",
+      "6.0.8, 5.3.27, 5.2.24.RELEASE",
+      "6.1.13",
+      "6.1.14",
+      "6.1.4, 6.0.17, 5.3.32",
+      "6.1.5, 6.0.18, 5.3.33",
+      "6.2.11",
+      "7.0.8, 6.2.19",
+      "8.5.84, 9.0.69, 10.1.2",
+      "9.0.107, 10.1.43, 11.0.9",
+      "9.0.116, 10.1.52, 11.0.20",
+      "9.0.116, 10.1.54, 11.0.21",
+      "9.0.117, 10.1.54, 11.0.21",
+      "9.0.118, 10.1.55, 11.0.22"
+    ]
+  },
+  {
+    "campaign": "dep:PyYAML",
+    "kind": "dependency",
+    "severity": "CRITICAL",
+    "sla_days": 15,
+    "findings": 4,
+    "repos": [
+      "fleet-diagnostics-jobs",
+      "telemetry-quality-checks"
+    ],
+    "repos_without_tests": [
+      "fleet-diagnostics-jobs"
+    ],
+    "repos_without_owner": [
+      "fleet-diagnostics-jobs"
+    ],
+    "ids": [
+      "CVE-2020-14343",
+      "CVE-2020-1747"
+    ],
+    "fixed_versions": [
+      "5.3.1",
+      "5.4"
+    ]
+  },
+  {
+    "campaign": "dep:log4j",
+    "kind": "dependency",
+    "severity": "CRITICAL",
+    "sla_days": 15,
+    "findings": 3,
+    "repos": [
+      "warranty-claims-api"
+    ],
+    "repos_without_tests": [
+      "warranty-claims-api"
+    ],
+    "repos_without_owner": [
+      "warranty-claims-api"
+    ],
+    "ids": [
+      "CVE-2021-44228",
+      "CVE-2021-45046",
+      "CVE-2021-45105"
+    ],
+    "fixed_versions": [
+      "2.12.3, 2.17.0, 2.3.1",
+      "2.15.0, 2.3.1, 2.12.2",
+      "2.16.0, 2.12.2"
+    ]
+  },
+  {
+    "campaign": "dep:minimist",
+    "kind": "dependency",
+    "severity": "CRITICAL",
+    "sla_days": 15,
+    "findings": 1,
+    "repos": [
+      "charging-network-gateway"
+    ],
+    "repos_without_tests": [
+      "charging-network-gateway"
+    ],
+    "repos_without_owner": [
+      "charging-network-gateway"
+    ],
+    "ids": [
+      "CVE-2021-44906"
+    ],
+    "fixed_versions": [
+      "1.2.6, 0.2.4"
+    ]
+  },
+  {
+    "campaign": "dep:org.apache.commons:commons-text",
+    "kind": "dependency",
+    "severity": "CRITICAL",
+    "sla_days": 15,
+    "findings": 1,
+    "repos": [
+      "ota-campaign-service"
+    ],
+    "repos_without_tests": [],
+    "repos_without_owner": [],
+    "ids": [
+      "CVE-2022-42889"
+    ],
+    "fixed_versions": [
+      "1.10.0"
+    ]
+  },
+  {
+    "campaign": "dep:jackson",
+    "kind": "dependency",
+    "severity": "HIGH",
+    "sla_days": 30,
+    "findings": 10,
+    "repos": [
+      "ota-campaign-service",
+      "warranty-claims-api"
+    ],
+    "repos_without_tests": [
+      "warranty-claims-api"
+    ],
+    "repos_without_owner": [
+      "warranty-claims-api"
+    ],
+    "ids": [
+      "CVE-2020-36518",
+      "CVE-2022-42003",
+      "CVE-2022-42004",
+      "CVE-2025-52999",
+      "CVE-2026-54512",
+      "CVE-2026-54513",
+      "GHSA-r7wm-3cxj-wff9"
+    ],
+    "fixed_versions": [
+      "2.12.7.1, 2.13.4",
+      "2.12.7.1, 2.13.4.2",
+      "2.13.2.1, 2.12.6.1",
+      "2.15.0",
+      "2.18.8, 2.21.4",
+      "2.18.8, 2.21.4, 3.1.4",
+      "2.18.8, 3.1.4, 2.21.4"
+    ]
+  },
+  {
+    "campaign": "dep:fastify",
+    "kind": "dependency",
+    "severity": "HIGH",
+    "sla_days": 30,
+    "findings": 4,
+    "repos": [
+      "charging-network-gateway",
+      "owner-portal-bff"
+    ],
+    "repos_without_tests": [
+      "charging-network-gateway"
+    ],
+    "repos_without_owner": [
+      "charging-network-gateway"
+    ],
+    "ids": [
+      "CVE-2026-25223",
+      "CVE-2026-47219"
+    ],
+    "fixed_versions": [
+      "5.7.2",
+      "9.7.0"
+    ]
+  },
+  {
+    "campaign": "code:halcyon-ts-jwt-verify-no-algorithms",
+    "kind": "code",
+    "severity": "HIGH",
+    "sla_days": 30,
+    "findings": 2,
+    "repos": [
+      "charging-network-gateway",
+      "owner-portal-bff"
+    ],
+    "repos_without_tests": [
+      "charging-network-gateway"
+    ],
+    "repos_without_owner": [
+      "charging-network-gateway"
+    ],
+    "ids": [
+      "halcyon-ts-jwt-verify-no-algorithms"
+    ],
+    "fixed_versions": []
+  },
+  {
+    "campaign": "dep:jsonwebtoken",
+    "kind": "dependency",
+    "severity": "HIGH",
+    "sla_days": 30,
+    "findings": 2,
+    "repos": [
+      "charging-network-gateway",
+      "owner-portal-bff"
+    ],
+    "repos_without_tests": [
+      "charging-network-gateway"
+    ],
+    "repos_without_owner": [
+      "charging-network-gateway"
+    ],
+    "ids": [
+      "CVE-2022-23539"
+    ],
+    "fixed_versions": [
+      "9.0.0"
+    ]
+  },
+  {
+    "campaign": "code:halcyon-py-yaml-load-no-loader",
+    "kind": "code",
+    "severity": "HIGH",
+    "sla_days": 30,
+    "findings": 2,
+    "repos": [
+      "fleet-diagnostics-jobs",
+      "telemetry-quality-checks"
+    ],
+    "repos_without_tests": [
+      "fleet-diagnostics-jobs"
+    ],
+    "repos_without_owner": [
+      "fleet-diagnostics-jobs"
+    ],
+    "ids": [
+      "halcyon-py-yaml-load-no-loader"
+    ],
+    "fixed_versions": []
+  },
+  {
+    "campaign": "code:halcyon-java-snakeyaml-unsafe-constructor",
+    "kind": "code",
+    "severity": "HIGH",
+    "sla_days": 30,
+    "findings": 2,
+    "repos": [
+      "ota-campaign-service",
+      "warranty-claims-api"
+    ],
+    "repos_without_tests": [
+      "warranty-claims-api"
+    ],
+    "repos_without_owner": [
+      "warranty-claims-api"
+    ],
+    "ids": [
+      "halcyon-java-snakeyaml-unsafe-constructor"
+    ],
+    "fixed_versions": []
+  },
+  {
+    "campaign": "dep:snakeyaml",
+    "kind": "dependency",
+    "severity": "HIGH",
+    "sla_days": 30,
+    "findings": 2,
+    "repos": [
+      "ota-campaign-service",
+      "warranty-claims-api"
+    ],
+    "repos_without_tests": [
+      "warranty-claims-api"
+    ],
+    "repos_without_owner": [
+      "warranty-claims-api"
+    ],
+    "ids": [
+      "CVE-2022-1471"
+    ],
+    "fixed_versions": [
+      "2.0"
+    ]
+  },
+  {
+    "campaign": "dep:x/crypto",
+    "kind": "dependency",
+    "severity": "HIGH",
+    "sla_days": 30,
+    "findings": 13,
+    "repos": [
+      "vin-registry-service"
+    ],
+    "repos_without_tests": [],
+    "repos_without_owner": [],
+    "ids": [
+      "CVE-2024-45337",
+      "CVE-2025-22869",
+      "CVE-2025-47913",
+      "CVE-2026-39828",
+      "CVE-2026-39829",
+      "CVE-2026-39830",
+      "CVE-2026-39831",
+      "CVE-2026-39832",
+      "CVE-2026-39835",
+      "CVE-2026-42508",
+      "CVE-2026-46595",
+      "CVE-2026-46597",
+      "CVE-2026-56854"
+    ],
+    "fixed_versions": [
+      "0.31.0",
+      "0.35.0",
+      "0.43.0",
+      "0.52.0",
+      "0.55.0"
+    ]
+  },
+  {
+    "campaign": "dep:axios",
+    "kind": "dependency",
+    "severity": "HIGH",
+    "sla_days": 30,
+    "findings": 11,
+    "repos": [
+      "owner-portal-bff"
+    ],
+    "repos_without_tests": [],
+    "repos_without_owner": [],
+    "ids": [
+      "CVE-2021-3749",
+      "CVE-2025-27152",
+      "CVE-2026-25639",
+      "CVE-2026-42033",
+      "CVE-2026-42035",
+      "CVE-2026-42043",
+      "CVE-2026-44486",
+      "CVE-2026-44487",
+      "CVE-2026-44492",
+      "CVE-2026-44495",
+      "CVE-2026-44496"
+    ],
+    "fixed_versions": [
+      "0.21.2",
+      "1.13.5, 0.30.3",
+      "1.15.1, 0.31.1",
+      "1.15.2, 0.31.1",
+      "1.16.0, 0.32.0",
+      "1.8.2, 0.30.0"
+    ]
+  },
+  {
+    "campaign": "dep:urllib3",
+    "kind": "dependency",
+    "severity": "HIGH",
+    "sla_days": 30,
+    "findings": 6,
+    "repos": [
+      "fleet-diagnostics-jobs"
+    ],
+    "repos_without_tests": [
+      "fleet-diagnostics-jobs"
+    ],
+    "repos_without_owner": [
+      "fleet-diagnostics-jobs"
+    ],
+    "ids": [
+      "CVE-2021-33503",
+      "CVE-2023-43804",
+      "CVE-2025-66418",
+      "CVE-2025-66471",
+      "CVE-2026-21441",
+      "CVE-2026-44431"
+    ],
+    "fixed_versions": [
+      "1.26.5",
+      "2.0.6, 1.26.17",
+      "2.6.0",
+      "2.6.3",
+      "2.7.0"
+    ]
+  },
+  {
+    "campaign": "dep:cryptography",
+    "kind": "dependency",
+    "severity": "HIGH",
+    "sla_days": 30,
+    "findings": 4,
+    "repos": [
+      "fleet-diagnostics-jobs"
+    ],
+    "repos_without_tests": [
+      "fleet-diagnostics-jobs"
+    ],
+    "repos_without_owner": [
+      "fleet-diagnostics-jobs"
+    ],
+    "ids": [
+      "CVE-2023-0286",
+      "CVE-2023-50782",
+      "CVE-2026-26007",
+      "GHSA-537c-gmf6-5ccf"
+    ],
+    "fixed_versions": [
+      "39.0.1",
+      "42.0.0",
+      "46.0.5",
+      "48.0.1"
+    ]
+  },
+  {
+    "campaign": "dep:lodash",
+    "kind": "dependency",
+    "severity": "HIGH",
+    "sla_days": 30,
+    "findings": 4,
+    "repos": [
+      "owner-portal-bff"
+    ],
+    "repos_without_tests": [],
+    "repos_without_owner": [],
+    "ids": [
+      "CVE-2020-8203",
+      "CVE-2021-23337",
+      "CVE-2026-4800",
+      "NSWG-ECO-516"
+    ],
+    "fixed_versions": [
+      "4.17.19",
+      "4.17.21",
+      "4.18.0",
+      ">=4.17.19"
+    ]
+  },
+  {
+    "campaign": "dep:x/text",
+    "kind": "dependency",
+    "severity": "HIGH",
+    "sla_days": 30,
+    "findings": 2,
+    "repos": [
+      "service-appointments-api"
+    ],
+    "repos_without_tests": [
+      "service-appointments-api"
+    ],
+    "repos_without_owner": [
+      "service-appointments-api"
+    ],
+    "ids": [
+      "CVE-2022-32149",
+      "CVE-2026-56852"
+    ],
+    "fixed_versions": [
+      "0.3.8",
+      "0.39.0"
+    ]
+  },
+  {
+    "campaign": "dep:node-fetch",
+    "kind": "dependency",
+    "severity": "HIGH",
+    "sla_days": 30,
+    "findings": 1,
+    "repos": [
+      "charging-network-gateway"
+    ],
+    "repos_without_tests": [
+      "charging-network-gateway"
+    ],
+    "repos_without_owner": [
+      "charging-network-gateway"
+    ],
+    "ids": [
+      "CVE-2022-0235"
+    ],
+    "fixed_versions": [
+      "3.1.1, 2.6.7"
+    ]
+  },
+  {
+    "campaign": "code:halcyon-py-hardcoded-service-token",
+    "kind": "code",
+    "severity": "HIGH",
+    "sla_days": 30,
+    "findings": 1,
+    "repos": [
+      "fleet-diagnostics-jobs"
+    ],
+    "repos_without_tests": [
+      "fleet-diagnostics-jobs"
+    ],
+    "repos_without_owner": [
+      "fleet-diagnostics-jobs"
+    ],
+    "ids": [
+      "halcyon-py-hardcoded-service-token"
+    ],
+    "fixed_versions": []
+  },
+  {
+    "campaign": "dep:ch.qos.logback:logback-classic",
+    "kind": "dependency",
+    "severity": "HIGH",
+    "sla_days": 30,
+    "findings": 1,
+    "repos": [
+      "ota-campaign-service"
+    ],
+    "repos_without_tests": [],
+    "repos_without_owner": [],
+    "ids": [
+      "CVE-2023-6378"
+    ],
+    "fixed_versions": [
+      "1.3.12, 1.4.12, 1.2.13"
+    ]
+  },
+  {
+    "campaign": "dep:ch.qos.logback:logback-core",
+    "kind": "dependency",
+    "severity": "HIGH",
+    "sla_days": 30,
+    "findings": 1,
+    "repos": [
+      "ota-campaign-service"
+    ],
+    "repos_without_tests": [],
+    "repos_without_owner": [],
+    "ids": [
+      "CVE-2023-6378"
+    ],
+    "fixed_versions": [
+      "1.3.12, 1.4.12, 1.2.13"
+    ]
+  },
+  {
+    "campaign": "code:halcyon-go-jwt-no-alg-check",
+    "kind": "code",
+    "severity": "HIGH",
+    "sla_days": 30,
+    "findings": 1,
+    "repos": [
+      "service-appointments-api"
+    ],
+    "repos_without_tests": [
+      "service-appointments-api"
+    ],
+    "repos_without_owner": [
+      "service-appointments-api"
+    ],
+    "ids": [
+      "halcyon-go-jwt-no-alg-check"
+    ],
+    "fixed_versions": []
+  },
+  {
+    "campaign": "code:subprocess-shell-true",
+    "kind": "code",
+    "severity": "HIGH",
+    "sla_days": 30,
+    "findings": 1,
+    "repos": [
+      "telemetry-quality-checks"
+    ],
+    "repos_without_tests": [],
+    "repos_without_owner": [],
+    "ids": [
+      "subprocess-shell-true"
+    ],
+    "fixed_versions": []
+  },
+  {
+    "campaign": "code:detected-bcrypt-hash",
+    "kind": "code",
+    "severity": "HIGH",
+    "sla_days": 30,
+    "findings": 1,
+    "repos": [
+      "vin-registry-service"
+    ],
+    "repos_without_tests": [],
+    "repos_without_owner": [],
+    "ids": [
+      "detected-bcrypt-hash"
+    ],
+    "fixed_versions": []
+  },
+  {
+    "campaign": "code:halcyon-go-sql-string-concat",
+    "kind": "code",
+    "severity": "HIGH",
+    "sla_days": 30,
+    "findings": 1,
+    "repos": [
+      "vin-registry-service"
+    ],
+    "repos_without_tests": [],
+    "repos_without_owner": [],
+    "ids": [
+      "halcyon-go-sql-string-concat"
+    ],
+    "fixed_versions": []
+  },
+  {
+    "campaign": "dep:gopkg.in/yaml.v2",
+    "kind": "dependency",
+    "severity": "HIGH",
+    "sla_days": 30,
+    "findings": 1,
+    "repos": [
+      "vin-registry-service"
+    ],
+    "repos_without_tests": [],
+    "repos_without_owner": [],
+    "ids": [
+      "CVE-2022-3064"
+    ],
+    "fixed_versions": [
+      "2.2.4"
+    ]
+  },
+  {
+    "campaign": "code:halcyon-java-log4j-untrusted-input",
+    "kind": "code",
+    "severity": "HIGH",
+    "sla_days": 30,
+    "findings": 1,
+    "repos": [
+      "warranty-claims-api"
+    ],
+    "repos_without_tests": [
+      "warranty-claims-api"
+    ],
+    "repos_without_owner": [
+      "warranty-claims-api"
+    ],
+    "ids": [
+      "halcyon-java-log4j-untrusted-input"
+    ],
+    "fixed_versions": []
+  }
+]

@@ -1,0 +1,73 @@
+# Product Security custom rules. These complement the registry packs (p/java, p/golang, p/python, p/typescript, p/secrets).
+rules:
+  - id: halcyon-go-sql-string-concat
+    languages: [go]
+    severity: ERROR
+    message: SQL query built with string concatenation. Use parameterized queries ($DB.Query(q, args...)).
+    metadata: { cwe: "CWE-89", category: security }
+    patterns:
+      - pattern-either:
+          - pattern: |
+              $Q := "..." + $X
+              ...
+              $DB.Query($Q)
+          - pattern: |
+              $Q := "..." + $X + "..."
+              ...
+              $DB.Query($Q)
+          - pattern: $DB.Query("..." + $X + "...")
+          - pattern: $DB.Query("..." + $X)
+
+  - id: halcyon-go-jwt-no-alg-check
+    languages: [go]
+    severity: ERROR
+    message: JWT parsed without verifying the signing method. Check t.Method before returning the key.
+    metadata: { cwe: "CWE-347", category: security }
+    patterns:
+      - pattern: jwt.ParseWithClaims($T, $C, func($X *jwt.Token) (interface{}, error) { return $K, nil })
+
+  - id: halcyon-py-yaml-load-no-loader
+    languages: [python]
+    severity: ERROR
+    message: yaml.load without an explicit Loader can instantiate arbitrary Python objects. Use yaml.safe_load.
+    metadata: { cwe: "CWE-502", category: security }
+    patterns:
+      - pattern: yaml.load($X)
+
+  - id: halcyon-py-hardcoded-service-token
+    languages: [python]
+    severity: ERROR
+    message: Hardcoded service token. Read it from the environment or the secrets manager.
+    metadata: { cwe: "CWE-798", category: security }
+    patterns:
+      - pattern-regex: '[A-Z_]*TOKEN\s*=\s*"hal_live_[0-9a-f]+"'
+
+  - id: halcyon-java-log4j-untrusted-input
+    languages: [java]
+    severity: ERROR
+    message: Untrusted request field logged through Log4j 2.x < 2.17. Upgrade log4j-core and avoid logging free text fields.
+    metadata: { cwe: "CWE-117", category: security }
+    patterns:
+      - pattern-either:
+          - pattern: $LOG.info("...", ..., $C.getServiceCenterNotes(), ...)
+          - pattern: $LOG.info("...", ..., $C.getServiceCenterNotes())
+
+  - id: halcyon-java-snakeyaml-unsafe-constructor
+    languages: [java]
+    severity: ERROR
+    message: new Yaml() uses the default Constructor which can instantiate arbitrary classes. Use new Yaml(new SafeConstructor(new LoaderOptions())).
+    metadata: { cwe: "CWE-502", category: security }
+    patterns:
+      - pattern: new Yaml()
+
+  - id: halcyon-ts-jwt-verify-no-algorithms
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: jwt.verify without an algorithms allowlist. Pin algorithms to ["HS256"].
+    metadata: { cwe: "CWE-347", category: security }
+    patterns:
+      - pattern-either:
+          - pattern: jwt.verify($T, $K)
+          - pattern: jwt.verify($T, $K, $O)
+      - pattern-not: |
+          jwt.verify($T, $K, {..., algorithms: $A, ...})

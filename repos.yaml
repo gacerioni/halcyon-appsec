@@ -1,0 +1,44 @@
+# The service repos in scope for the remediation pilot. Each is its own git repo under GITHUB_ORG.
+# tests: does the repo have a test suite today. owners: does it have CODEOWNERS.
+github_org: gacerioni
+repos:
+  - name: ota-campaign-service
+    language: java
+    tests: true
+    owners: true
+    test_cmd: mvn -B -q verify
+  - name: warranty-claims-api
+    language: java
+    tests: false
+    owners: false
+    test_cmd: mvn -B -q verify
+  - name: owner-portal-bff
+    language: typescript
+    tests: true
+    owners: true
+    test_cmd: npm ci --no-audit --no-fund && npm run build && npm test
+  - name: charging-network-gateway
+    language: typescript
+    tests: false
+    owners: false
+    test_cmd: npm ci --no-audit --no-fund && npm run build
+  - name: telemetry-quality-checks
+    language: python
+    tests: true
+    owners: true
+    test_cmd: pip install -q -e ".[test]" && python -m pytest -q
+  - name: fleet-diagnostics-jobs
+    language: python
+    tests: false
+    owners: false
+    test_cmd: pip install -q -e . && python -c "import fleetdiag.cli"
+  - name: vin-registry-service
+    language: go
+    tests: true
+    owners: true
+    test_cmd: go vet ./... && go test ./...
+  - name: service-appointments-api
+    language: go
+    tests: partial
+    owners: false
+    test_cmd: go vet ./... && go test ./...

@@ -1,0 +1,9 @@
+# service repos are separate git repositories cloned next to this Makefile
+halcyon-*/
+.after/
+.demo-state/
+report/findings_after.csv
+report/tests_after.txt
+report/report.md
+report/index.html
+__pycache__/

@@ -14,14 +14,15 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install -e ".[test]" || pip install -e .
-      - run: python -m pytest -q || test ! -d tests
+      - run: pip install pytest
+      - run: python -m pytest -q || test $? -eq 5
 
   security-gate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Trivy (dependencies)
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@v0.33.1
         with:
           scan-type: fs
           scan-ref: .
@@ -31,4 +32,6 @@ jobs:
           ignore-unfixed: true
           format: table
       - name: Semgrep (code)
-        run: pipx run semgrep scan --config p/python --config p/secrets --severity ERROR --error --metrics=off .
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/gacerioni/halcyon-appsec/main/rules/halcyon-appsec.yml -o /tmp/halcyon-appsec.yml
+          pipx run semgrep scan --config /tmp/halcyon-appsec.yml --config p/python --config p/secrets --severity ERROR --error --metrics=off .

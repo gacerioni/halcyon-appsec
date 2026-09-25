@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Trivy (dependencies)
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@v0.33.1
         with:
           scan-type: fs
           scan-ref: .
@@ -33,4 +33,6 @@ jobs:
           ignore-unfixed: true
           format: table
       - name: Semgrep (code)
-        run: pipx run semgrep scan --config p/typescript --config p/secrets --severity ERROR --error --metrics=off .
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/gacerioni/halcyon-appsec/main/rules/halcyon-appsec.yml -o /tmp/halcyon-appsec.yml
+          pipx run semgrep scan --config /tmp/halcyon-appsec.yml --config p/typescript --config p/secrets --severity ERROR --error --metrics=off .

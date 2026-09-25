@@ -3,6 +3,7 @@
 # and builds the before/after report. main is never touched.
 set -euo pipefail
 cd "$(dirname "$0")/.."
+export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin"
 ORG=$(python3 -c "import yaml;print(yaml.safe_load(open('repos.yaml'))['github_org'])")
 mkdir -p .after report
 : > report/tests_after.txt

@@ -26,12 +26,12 @@ repos:
     language: python
     tests: true
     owners: true
-    test_cmd: pip install -q -e ".[test]" && python -m pytest -q
+    test_cmd: python3 -m venv .venv && . .venv/bin/activate && pip install -q -U pip && pip install -q -e ".[test]" && python -m pytest -q
   - name: fleet-diagnostics-jobs
     language: python
     tests: false
     owners: false
-    test_cmd: pip install -q -e . && python -c "import fleetdiag.cli"
+    test_cmd: python3 -m venv .venv && . .venv/bin/activate && pip install -q -U pip && pip install -q -e . pytest && python -c "import fleetdiag.cli" && (python -m pytest -q || test $? -eq 5)
   - name: vin-registry-service
     language: go
     tests: true

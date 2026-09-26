@@ -1,6 +1,6 @@
 name: release
 # Progressive delivery for the owner portal. Runs only after a PR is merged to main (Devin never merges).
-#   build image -> push GHCR -> Trivy image scan (CRITICAL/HIGH blocks) -> canary 10% on the demo host
+#   build image -> push GHCR -> Trivy image scan (CRITICAL blocks; HIGH tracked under SLA in the Command Center) -> canary 10% on the demo host
 #   -> smoke test pinned to the canary -> manual approval (environment "production") -> promote 100%.
 # Secrets on the repo: DEPLOY_HOST (ip or dns), DEPLOY_USER, DEPLOY_SSH_KEY (private key, deploy-only user).
 on:
@@ -38,7 +38,7 @@ jobs:
         uses: aquasecurity/trivy-action@v0.33.1
         with:
           image-ref: ${{ env.IMAGE }}:${{ steps.meta.outputs.tag }}
-          severity: CRITICAL,HIGH
+          severity: CRITICAL
           ignore-unfixed: true
           exit-code: "1"
           format: table

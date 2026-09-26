@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 PY := python3
 
-.PHONY: help clone scan triage prompt kickoff status after reset baseline
+.PHONY: help clone scan triage prompt kickoff status after dashboard ops-deploy reset baseline
 
 help:
 	@echo "make clone      clone the 8 palmtree-* service repos next to this Makefile"
@@ -11,6 +11,8 @@ help:
 	@echo "make kickoff    start Devin sessions via API (ARGS='--all' | ARGS='--campaign dep:PyYAML' | ARGS='repo1 repo2')"
 	@echo "make status     open devin/* PRs across the repos"
 	@echo "make after      check out PR heads, rerun tests + scanners, build report/report.md and index.html"
+	@echo "make dashboard  build dashboard/data.json (findings, campaigns, sessions, PRs) for the Remediation Command Center"
+	@echo "make ops-deploy scp dashboard/ to the demo VM and rebuild the ops container (DEPLOY=user@host)"
 	@echo "make reset      close devin PRs, delete devin branches, reset main to demo-baseline"
 	@echo "make baseline   tag current main of every repo as demo-baseline (do once)"
 
@@ -37,6 +39,12 @@ status:
 
 after:
 	@bash tools/after.sh
+
+dashboard:
+	@$(PY) tools/dashboard.py
+
+ops-deploy: dashboard
+	@scp -rq dashboard/ $(DEPLOY):palmtree-appsec/ && ssh $(DEPLOY) "cd palmtree-appsec/deploy && docker compose up -d --build ops" && echo "ops deployed"
 
 reset:
 	@bash tools/demo_reset.sh

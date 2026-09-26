@@ -1,0 +1,59 @@
+# Palm Tree Motors demo host: one Compute Engine VM, Caddy on :80/:443 with Let's Encrypt.
+#
+#   cognition.platformengineer.io/        -> site-stable (90%) + site-canary (10%) while a canary is live
+#   cognition.platformengineer.io/ops/    -> Remediation Command Center (static)
+#
+# Image tags come from .env (SITE_STABLE_TAG, SITE_CANARY_TAG, CANARY_WEIGHT). Never edit by hand during
+# a demo: use canary.sh / promote.sh / rollback.sh, which rewrite .env and reload Caddy.
+services:
+  caddy:
+    image: caddy:2.9-alpine
+    restart: unless-stopped
+    ports: ["80:80", "443:443"]
+    environment:
+      DOMAIN: ${DOMAIN}
+      ACME_EMAIL: ${ACME_EMAIL}
+      CANARY_WEIGHT: ${CANARY_WEIGHT:-0}
+      STABLE_WEIGHT: ${STABLE_WEIGHT:-10}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on: [site-stable, ops]
+
+  site-stable:
+    image: ghcr.io/${GH_OWNER}/palmtree-owner-portal-bff:${SITE_STABLE_TAG}
+    restart: unless-stopped
+    environment:
+      PORT: "3001"
+      APP_VERSION: ${SITE_STABLE_TAG}
+      APP_COLOR: stable
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3001/healthz"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  site-canary:
+    image: ghcr.io/${GH_OWNER}/palmtree-owner-portal-bff:${SITE_CANARY_TAG:-${SITE_STABLE_TAG}}
+    restart: unless-stopped
+    profiles: ["canary"]
+    environment:
+      PORT: "3001"
+      APP_VERSION: ${SITE_CANARY_TAG:-${SITE_STABLE_TAG}}
+      APP_COLOR: canary
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3001/healthz"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+
+  ops:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.ops
+    restart: unless-stopped
+
+volumes:
+  caddy_data:
+  caddy_config:

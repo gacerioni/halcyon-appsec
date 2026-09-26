@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Palm Tree Motors · Remediation Command Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070907;--panel:#0e120f;--line:#1c231e;--fg:#e9ede9;--muted:#8b948d;--green:#2fbf71;--green-dim:#0e5b3a;--red:#e5484d;--amber:#e0a12b;--blue:#5b9dff}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--fg);font:15px/1.5 Inter,-apple-system,Segoe UI,Helvetica,sans-serif;font-weight:300;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}a:hover{text-decoration:underline}
+header{display:flex;align-items:center;justify-content:space-between;padding:22px 48px;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(7,9,7,.85);backdrop-filter:blur(12px);z-index:5}
+.brand{display:flex;align-items:center;gap:14px;letter-spacing:.32em;font-weight:200;font-size:15px}
+.brand svg{width:26px;height:26px}
+.brand small{letter-spacing:.08em;color:var(--muted);font-size:12px;margin-left:10px;padding-left:14px;border-left:1px solid var(--line)}
+.meta{color:var(--muted);font-size:12px;letter-spacing:.06em;display:flex;gap:22px;align-items:center}
+.live{display:inline-flex;align-items:center;gap:8px}.live i{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.35}}
+main{padding:40px 48px 80px;max-width:1600px;margin:0 auto}
+h1{font-weight:200;font-size:46px;letter-spacing:-.01em;line-height:1.1}
+h1 span{color:var(--muted)}
+.sub{color:var(--muted);margin-top:10px;font-size:15px;max-width:820px}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin:36px 0 12px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 24px;position:relative;overflow:hidden}
+.kpi .l{color:var(--muted);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.kpi .v{font-size:44px;font-weight:200;margin-top:8px;line-height:1;display:flex;align-items:baseline;gap:12px}
+.kpi .v .arrow{font-size:22px;color:var(--muted)}
+.kpi .v .after{color:var(--green)}
+.kpi .d{color:var(--muted);font-size:12px;margin-top:10px}
+.kpi.crit .v{color:var(--red)}.kpi.crit .v .after{color:var(--green)}
+.bar{height:6px;border-radius:3px;background:var(--line);overflow:hidden;margin-top:14px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--green-dim),var(--green));width:0;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+section{margin-top:44px}
+h2{font-weight:300;font-size:22px;letter-spacing:.01em;display:flex;align-items:baseline;gap:14px}
+h2 small{color:var(--muted);font-size:13px;font-weight:300}
+table{width:100%;border-collapse:collapse;margin-top:16px;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+th,td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle;font-size:14px}
+th{color:var(--muted);font-weight:400;font-size:11px;letter-spacing:.14em;text-transform:uppercase;background:#0b0e0c}
+tr:last-child td{border-bottom:0}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);color:var(--muted)}
+.pill.crit{color:var(--red);border-color:rgba(229,72,77,.4);background:rgba(229,72,77,.08)}
+.pill.high{color:var(--amber);border-color:rgba(224,161,43,.4);background:rgba(224,161,43,.08)}
+.pill.ok{color:var(--green);border-color:rgba(47,191,113,.4);background:rgba(47,191,113,.08)}
+.pill.bad{color:var(--red);border-color:rgba(229,72,77,.4)}
+.pill.run{color:var(--blue);border-color:rgba(91,157,255,.4);background:rgba(91,157,255,.08)}
+.pill.dim{opacity:.6}
+.num{font-variant-numeric:tabular-nums}
+.delta{color:var(--muted)}.delta b{color:var(--green);font-weight:500}
+.zero{color:var(--green)}
+.warn{color:var(--amber)}
+.grid2{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.card h3{font-weight:400;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.flow b{font-weight:400;color:var(--fg);padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:#0b0e0c}
+.flow b.human{border-color:rgba(47,191,113,.5);color:var(--green)}
+.flow s{text-decoration:none;opacity:.5}
+ul.notes{list-style:none;display:grid;gap:8px;color:var(--muted);font-size:14px}
+ul.notes li::before{content:"—";margin-right:10px;color:var(--green)}
+footer{padding:30px 48px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;display:flex;justify-content:space-between;letter-spacing:.04em}
+.empty{color:var(--muted);font-style:italic}
+@media (max-width:1100px){.kpis{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}header,main,footer{padding-left:20px;padding-right:20px}h1{font-size:34px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <svg viewBox="0 0 32 32" fill="none" stroke="#2fbf71" stroke-width="1.6" stroke-linecap="round"><path d="M16 30V14"/><path d="M16 14c-6-1-10-6-11-11 6 0 10 4 11 11z"/><path d="M16 14c6-1 10-6 11-11-6 0-10 4-11 11z"/><path d="M16 14c-1-6 1-10 4-12 2 4 1 9-4 12z"/><path d="M16 14c1-6-1-10-4-12-2 4-1 9 4 12z"/></svg>
+    PALM TREE <small>Product Security · Remediation Command Center</small>
+  </div>
+  <div class="meta"><span class="live"><i></i> <span id="gen">loading</span></span><span id="scm"></span></div>
+</header>
+
+<main>
+  <h1>Supply-chain backlog, <span id="phase">before</span></h1>
+  <p class="sub" id="lede"></p>
+
+  <div class="kpis">
+    <div class="kpi"><div class="l">Open findings · critical + high</div><div class="v" id="k-total"></div><div class="bar"><i id="b-total"></i></div><div class="d" id="d-total"></div></div>
+    <div class="kpi crit"><div class="l">Critical · SLA <span id="sla-c"></span>d</div><div class="v" id="k-crit"></div><div class="bar"><i id="b-crit"></i></div><div class="d" id="d-crit"></div></div>
+    <div class="kpi"><div class="l">Campaigns · one playbook each</div><div class="v" id="k-camp"></div><div class="d" id="d-camp"></div></div>
+    <div class="kpi"><div class="l">Devin sessions · in parallel</div><div class="v" id="k-sess"></div><div class="d" id="d-sess"></div></div>
+    <div class="kpi"><div class="l">Pull requests · awaiting human review</div><div class="v" id="k-prs"></div><div class="d" id="d-prs"></div></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>How a fix ships</h3>
+      <div class="flow">
+        <b>Scanner findings</b>→<b>Triage into campaigns</b>→<b>Devin session per repo</b>→<b>Fix + tests</b>→<b>Trivy · Semgrep in CI</b>→<b>PR / MR</b>→<b class="human">Human review</b>→<b>Canary 10%</b>→<b>Smoke</b>→<b>100%</b>
+      </div>
+      <ul class="notes" style="margin-top:16px">
+        <li>Devin never merges. Every PR above is open until an engineer approves it.</li>
+        <li>"Fixed" means the scanner ran again on the PR head and the finding is gone, with tests passing.</li>
+        <li>Findings a PR leaves open are listed in the PR body with the reason. They need a product decision, not a scanner.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Estate</h3>
+      <ul class="notes" id="estate"></ul>
+    </div>
+  </div>
+
+  <section>
+    <h2>Campaigns <small>same issue, repeated across repos. One playbook, N repos, in parallel.</small></h2>
+    <table><thead><tr><th>Campaign</th><th>Severity</th><th>Repos</th><th>Before</th><th>After</th><th>No tests</th><th>No owner</th><th>Fix to</th></tr></thead><tbody id="camps"></tbody></table>
+  </section>
+
+  <section>
+    <h2>Repositories <small>one Devin session and one PR per repository</small></h2>
+    <table><thead><tr><th>Repository</th><th>Lang</th><th>Tests</th><th>Owner</th><th>Findings</th><th>Session</th><th>ACU</th><th>PR</th><th>CI</th><th>Review</th></tr></thead><tbody id="repos"></tbody></table>
+  </section>
+
+  <section id="introduced-wrap" style="display:none">
+    <h2>New findings introduced by PRs <small>must be zero</small></h2>
+    <p class="warn" id="introduced"></p>
+  </section>
+</main>
+
+<footer><span id="disclaimer"></span><span>GitHub stands in for GitLab · Trivy + Semgrep · Devin</span></footer>
+
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const pill = (txt, cls) => `<span class="pill ${cls||""}">${esc(txt)}</span>`;
+const link = (href, txt) => href ? `<a href="${esc(href)}" target="_blank" rel="noopener">${esc(txt)}</a>` : esc(txt);
+
+function kpi(id, before, after) {
+  const has = after !== null && after !== undefined;
+  $(`k-${id}`).innerHTML = has
+    ? `<span class="num">${before}</span><span class="arrow">→</span><span class="after num">${after}</span>`
+    : `<span class="num">${before}</span>`;
+  if ($(`b-${id}`)) $(`b-${id}`).style.width = has && before ? `${Math.round((before-after)/before*100)}%` : "0%";
+  $(`d-${id}`).textContent = has && before ? `${Math.round((before-after)/before*100)}% closed with evidence` : has ? "" : "baseline · scanners run on main";
+}
+
+function ciPill(checks) {
+  const vals = Object.entries(checks || {});
+  if (!vals.length) return pill("pending", "dim");
+  const bad = vals.filter(([,v]) => ["failure","error","cancelled","timed_out"].includes(v));
+  const running = vals.filter(([,v]) => ["pending","in_progress","queued",""].includes(v));
+  if (bad.length) return pill(`${bad.map(([k])=>k).join(", ")} red`, "bad");
+  if (running.length) return pill("running", "run");
+  return pill("green", "ok");
+}
+
+function sessPill(s) {
+  if (!s) return pill("not started", "dim");
+  const d = (s.status_detail || s.status || "").toLowerCase();
+  if (["finished","exit","inactivity"].includes(d) || ["exit","suspended"].includes(s.status)) return link(s.url, "") ? `<a href="${esc(s.url)}" target="_blank">${pill("finished","ok")}</a>` : pill("finished","ok");
+  if (["waiting_for_user","waiting_for_approval","blocked"].includes(d)) return `<a href="${esc(s.url)}" target="_blank">${pill("needs human","high")}</a>`;
+  return `<a href="${esc(s.url)}" target="_blank">${pill("working","run")}</a>`;
+}
+
+async function load() {
+  const d = await (await fetch("./data.json", {cache: "no-store"})).json();
+  const after = d.after_available;
+  $("gen").textContent = new Date(d.generated_at).toLocaleString();
+  $("scm").textContent = d.estate.scm;
+  $("phase").textContent = after ? "before → after" : "before";
+  $("lede").textContent = after
+    ? `Scanners re-ran on every open PR head. ${d.before.total} → ${d.after.total} critical+high findings across ${d.estate.repos} repositories; ${d.before.critical} → ${d.after.critical} critical. Every PR is still open for human review.`
+    : `${d.before.total} critical+high findings across ${d.estate.repos} repositories, grouped into ${d.campaigns.length} remediation campaigns. ${d.estate.repos_without_tests.length} repos have no test suite, ${d.estate.repos_without_owner.length} have no CODEOWNERS.`;
+  $("sla-c").textContent = d.sla_days.CRITICAL;
+
+  kpi("total", d.before.total, after ? d.after.total : null);
+  kpi("crit", d.before.critical, after ? d.after.critical : null);
+  $("k-camp").innerHTML = `<span class="num">${d.campaigns.length}</span>`;
+  const closed = d.campaigns.filter(c => c.after === 0).length;
+  $("d-camp").textContent = after ? `${closed} fully closed` : `${d.campaigns.filter(c=>c.severity==="CRITICAL").length} contain a critical`;
+  const sess = d.sessions.length, fin = d.sessions.filter(s => ["finished","inactivity"].includes(s.status_detail||"") || ["exit","suspended"].includes(s.status)).length;
+  $("k-sess").innerHTML = `<span class="num">${sess}</span>`;
+  $("d-sess").textContent = sess ? `${fin} finished · ${d.acus_total} ACU total` : "none started yet";
+  const prs = d.repos.flatMap(r => r.prs);
+  $("k-prs").innerHTML = `<span class="num">${prs.length}</span>`;
+  $("d-prs").textContent = prs.length ? `${prs.filter(p=>p.review==="APPROVED").length} approved · 0 merged by Devin` : "none yet";
+
+  $("estate").innerHTML = [
+    `${d.estate.repos} repositories · Java, TypeScript, Python, Go`,
+    `Scanners: ${d.estate.scanners.join(" + ")} on every push`,
+    `No tests: ${d.estate.repos_without_tests.join(", ") || "none"}`,
+    `No CODEOWNERS: ${d.estate.repos_without_owner.join(", ") || "none"}`,
+    `SLA: critical ${d.sla_days.CRITICAL}d · high ${d.sla_days.HIGH}d`,
+  ].map(x => `<li>${esc(x)}</li>`).join("");
+
+  $("camps").innerHTML = d.campaigns.map(c => `<tr>
+    <td class="mono">${esc(c.campaign)}</td>
+    <td>${pill(c.severity, c.severity==="CRITICAL"?"crit":"high")}</td>
+    <td class="num">${c.repos.length}</td>
+    <td class="num">${c.before}</td>
+    <td class="num">${c.after===null ? "—" : c.after===0 ? `<span class="zero">0</span>` : c.after}</td>
+    <td class="num ${c.repos_without_tests.length?"warn":""}">${c.repos_without_tests.length}</td>
+    <td class="num ${c.repos_without_owner.length?"warn":""}">${c.repos_without_owner.length}</td>
+    <td class="mono" style="color:var(--muted)">${esc(c.fixed_versions.slice(0,3).join(", "))}</td>
+  </tr>`).join("");
+
+  $("repos").innerHTML = d.repos.map(r => {
+    const pr = r.prs[0];
+    const f = r.after.total===null ? `${r.before.total} <span class="delta">(${r.before.critical} crit)</span>`
+      : `<span class="delta"><span class="num">${r.before.total}</span> → <b class="num">${r.after.total}</b> (${r.before.critical} → ${r.after.critical} crit)</span>`;
+    const t = r.tests_after ? pill(r.tests_after.result, r.tests_after.result==="pass"?"ok":"bad") : (r.tests===true ? pill("yes","dim") : r.tests ? pill("partial","high") : pill("none","bad"));
+    return `<tr>
+      <td class="mono">${link(`https://github.com/${d.estate.org}/palmtree-${r.name}`, r.name)}</td>
+      <td>${esc(r.language)}</td>
+      <td>${t}</td>
+      <td>${r.owners ? pill("yes","dim") : pill("none","bad")}</td>
+      <td>${f}</td>
+      <td>${sessPill(r.session)}</td>
+      <td class="num">${r.session ? (r.session.acus ?? 0).toFixed(1) : "—"}</td>
+      <td>${pr ? link(pr.url, `#${pr.number}`) : `<span class="empty">none</span>`}</td>
+      <td>${pr ? ciPill(pr.checks) : "—"}</td>
+      <td>${pr ? pill(pr.review.replace(/_/g," ").toLowerCase(), pr.review==="APPROVED"?"ok":"dim") : "—"}</td>
+    </tr>`;
+  }).join("");
+
+  if (d.introduced_by_prs.length) { $("introduced-wrap").style.display=""; $("introduced").textContent = d.introduced_by_prs.join(", "); }
+  $("disclaimer").textContent = d.disclaimer;
+}
+load();
+setInterval(load, 15000);
+</script>
+</body>
+</html>

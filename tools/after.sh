@@ -31,3 +31,4 @@ done
 
 python3 tools/scan.py --root .after --out report/findings_after.csv
 python3 tools/report.py
+python3 tools/dashboard.py

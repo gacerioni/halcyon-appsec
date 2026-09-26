@@ -1,0 +1,70 @@
+name: release
+# Progressive delivery for the owner portal. Runs only after a PR is merged to main (Devin never merges).
+#   build image -> push GHCR -> Trivy image scan (CRITICAL/HIGH blocks) -> canary 10% on the demo host
+#   -> smoke test pinned to the canary -> manual approval (environment "production") -> promote 100%.
+# Secrets on the repo: DEPLOY_HOST (ip or dns), DEPLOY_USER, DEPLOY_SSH_KEY (private key, deploy-only user).
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  IMAGE: ghcr.io/${{ github.repository }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.meta.outputs.tag }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: meta
+        run: echo "tag=$(node -p "require('./package.json').version")-${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ${{ env.IMAGE }}:${{ steps.meta.outputs.tag }}
+      - name: Trivy image scan (gate)
+        uses: aquasecurity/trivy-action@v0.33.1
+        with:
+          image-ref: ${{ env.IMAGE }}:${{ steps.meta.outputs.tag }}
+          severity: CRITICAL,HIGH
+          ignore-unfixed: true
+          exit-code: "1"
+          format: table
+
+  canary:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: canary
+    steps:
+      - uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.DEPLOY_SSH_KEY }}
+      - name: canary 10%
+        run: |
+          ssh -o StrictHostKeyChecking=accept-new ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} \
+            "cd ~/palmtree-appsec/deploy && git pull -q && ./canary.sh ${{ needs.build.outputs.tag }}"
+
+  promote:
+    needs: [build, canary]
+    runs-on: ubuntu-latest
+    environment: production   # configure a required reviewer on this environment: a human clicks Approve
+    steps:
+      - uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.DEPLOY_SSH_KEY }}
+      - name: promote 100%
+        run: |
+          ssh -o StrictHostKeyChecking=accept-new ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} \
+            "cd ~/palmtree-appsec/deploy && ./promote.sh"

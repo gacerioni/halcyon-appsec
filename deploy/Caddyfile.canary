@@ -1,0 +1,32 @@
+{
+	email {$ACME_EMAIL}
+}
+
+{$DOMAIN} {
+	encode zstd gzip
+
+	handle_path /ops* {
+		reverse_proxy ops:80
+	}
+
+	# Progressive delivery: STABLE_WEIGHT:CANARY_WEIGHT of requests (default 9:1).
+	# A request with header X-Canary: 1 is pinned to the canary for smoke tests.
+	@pinned header X-Canary 1
+	handle @pinned {
+		reverse_proxy site-canary:3001
+	}
+
+	handle {
+		reverse_proxy site-stable:3001 site-canary:3001 {
+			lb_policy weighted_round_robin {$STABLE_WEIGHT} {$CANARY_WEIGHT}
+			health_uri /healthz
+			health_interval 5s
+			fail_duration 10s
+		}
+	}
+
+	log {
+		output stdout
+		format console
+	}
+}

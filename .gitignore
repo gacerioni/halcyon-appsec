@@ -7,3 +7,4 @@ report/tests_after.txt
 report/report.md
 report/index.html
 __pycache__/
+deploy/.env

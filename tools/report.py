@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Before/after report: queue/findings.csv (baseline) vs report/findings_after.csv (PR heads).
 
-Writes report/report.md and report/index.html. Numbers are for the Halcyon demo estate only.
+Writes report/report.md and report/index.html. Numbers are for the Palm Tree demo estate only.
 """
 from __future__ import annotations
 
@@ -45,7 +45,7 @@ def main() -> int:
     md = ["# Remediation campaign: before / after", "",
           f"Findings (CRITICAL+HIGH): **{len(before)} → {len(after)}**. "
           f"Critical: **{sum(b_crit.values())} → {sum(a_crit.values())}**. "
-          f"Repos: {len(repos)}. Data from the Halcyon demo estate, not a customer.", "",
+          f"Repos: {len(repos)}. Data from the Palm Tree demo estate, not a customer.", "",
           "| repo | lang | tests before | before (crit) | after (crit) | tests on PR | PR |", "|---|---|---|---|---|---|---|"]
     for name, meta in repos.items():
         result, branch, url = tests.get(name, ("n/a", "", ""))
@@ -102,7 +102,7 @@ def render_html(md: str) -> str:
     style = ("body{font:20px/1.4 -apple-system,Segoe UI,Helvetica,sans-serif;max-width:1200px;margin:40px auto;padding:0 24px;color:#111}"
              "table{border-collapse:collapse;margin:16px 0;width:100%}td,th{border-bottom:1px solid #ddd;padding:8px 10px;text-align:left}"
              "th{background:#f3f3f3}strong{color:#0a7d2c}h1{font-size:40px}h2{margin-top:40px}")
-    return f"<!doctype html><meta charset=utf-8><title>Halcyon remediation report</title><style>{style}</style>" + "\n".join(body)
+    return f"<!doctype html><meta charset=utf-8><title>Palm Tree remediation report</title><style>{style}</style>" + "\n".join(body)
 
 
 def inline(s: str) -> str:

@@ -20,7 +20,7 @@ import sys
 import yaml
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-RULES = ROOT / "rules" / "halcyon-appsec.yml"
+RULES = ROOT / "rules" / "palmtree-appsec.yml"
 COLUMNS = ["repo", "language", "tool", "severity", "kind", "id", "package", "installed", "fixed", "path", "line", "title"]
 SEMGREP_PACKS = {"java": "p/java", "typescript": "p/typescript", "python": "p/python", "go": "p/golang"}
 
@@ -75,7 +75,7 @@ def main() -> int:
     for repo in load_repos():
         if args.only and repo["name"] not in args.only:
             continue
-        path = args.root / f"halcyon-{repo['name']}"
+        path = args.root / f"palmtree-{repo['name']}"
         if not path.exists():
             print(f"skip {repo['name']}: {path} missing", file=sys.stderr)
             continue

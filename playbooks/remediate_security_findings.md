@@ -1,6 +1,6 @@
 # Playbook: remediate security findings in one repository
 
-You are remediating open security findings for Halcyon Motors Product Security in the repository
+You are remediating open security findings for Palm Tree Motors Product Security in the repository
 {{REPO_URL}} (language: {{LANGUAGE}}). Work only in this repository. Open exactly one pull request.
 
 ## Findings assigned to you
@@ -8,7 +8,7 @@ You are remediating open security findings for Halcyon Motors Product Security i
 {{FINDINGS}}
 
 Findings came from Trivy (dependency CVEs) and Semgrep (code rules, including the custom rules in
-{{CONTROL_REPO_URL}}/blob/main/rules/halcyon-appsec.yml). The severity labels and SLAs are the
+{{CONTROL_REPO_URL}}/blob/main/rules/palmtree-appsec.yml). The severity labels and SLAs are the
 CISO's, not yours: CRITICAL must close within 15 days, HIGH within 30.
 
 ## Procedure

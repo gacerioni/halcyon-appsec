@@ -1,12 +1,12 @@
 repo,language,tool,severity,kind,id,package,installed,fixed,path,line,title
-charging-network-gateway,typescript,semgrep,HIGH,code,halcyon-ts-jwt-verify-no-algorithms,,,,src/roaming.ts,17,jwt
+charging-network-gateway,typescript,semgrep,HIGH,code,palmtree-ts-jwt-verify-no-algorithms,,,,src/roaming.ts,17,jwt
 charging-network-gateway,typescript,trivy,CRITICAL,dependency,CVE-2021-44906,minimist,1.2.5,"1.2.6, 0.2.4",package-lock.json,,minimist: prototype pollution
 charging-network-gateway,typescript,trivy,HIGH,dependency,CVE-2022-0235,node-fetch,2.6.0,"3.1.1, 2.6.7",package-lock.json,,node-fetch: exposure of sensitive information to an unauthorized actor
 charging-network-gateway,typescript,trivy,HIGH,dependency,CVE-2022-23539,jsonwebtoken,8.5.1,9.0.0,package-lock.json,,jsonwebtoken: Unrestricted key type could lead to legacy keys usagen
 charging-network-gateway,typescript,trivy,HIGH,dependency,CVE-2026-25223,fastify,4.29.1,5.7.2,package-lock.json,,Fastify: Fastify: Validation bypass due to malformed Content-Type header leading to integrity impact
 charging-network-gateway,typescript,trivy,HIGH,dependency,CVE-2026-47219,find-my-way,8.2.2,9.7.0,package-lock.json,,find-my-way: find-my-way: Denial of Service vulnerability in HTTP/2 server
-fleet-diagnostics-jobs,python,semgrep,HIGH,code,halcyon-py-hardcoded-service-token,,,,fleetdiag/config.py,19,Hardcoded service token
-fleet-diagnostics-jobs,python,semgrep,HIGH,code,halcyon-py-yaml-load-no-loader,,,,fleetdiag/config.py,23,yaml
+fleet-diagnostics-jobs,python,semgrep,HIGH,code,palmtree-py-hardcoded-service-token,,,,fleetdiag/config.py,19,Hardcoded service token
+fleet-diagnostics-jobs,python,semgrep,HIGH,code,palmtree-py-yaml-load-no-loader,,,,fleetdiag/config.py,23,yaml
 fleet-diagnostics-jobs,python,trivy,CRITICAL,dependency,CVE-2020-14343,PyYAML,5.3,5.4,requirements.txt,,PyYAML: incomplete fix for CVE-2020-1747
 fleet-diagnostics-jobs,python,trivy,CRITICAL,dependency,CVE-2020-1747,PyYAML,5.3,5.3.1,requirements.txt,,PyYAML: arbitrary command execution through python/object/new when FullLoader is used
 fleet-diagnostics-jobs,python,trivy,HIGH,dependency,CVE-2021-33503,urllib3,1.26.4,1.26.5,requirements.txt,,python-urllib3: ReDoS in the parsing of authority part of URL
@@ -19,7 +19,7 @@ fleet-diagnostics-jobs,python,trivy,HIGH,dependency,CVE-2026-21441,urllib3,1.26.
 fleet-diagnostics-jobs,python,trivy,HIGH,dependency,CVE-2026-26007,cryptography,3.3.2,46.0.5,requirements.txt,,cryptography: cryptography Subgroup Attack Due to Missing Subgroup Validation for SECT Curves
 fleet-diagnostics-jobs,python,trivy,HIGH,dependency,CVE-2026-44431,urllib3,1.26.4,2.7.0,requirements.txt,,urllib3: urllib3: Information disclosure via cross-origin redirects forwarding sensitive headers
 fleet-diagnostics-jobs,python,trivy,HIGH,dependency,GHSA-537c-gmf6-5ccf,cryptography,3.3.2,48.0.1,requirements.txt,,Vulnerable OpenSSL included in cryptography wheels
-ota-campaign-service,java,semgrep,HIGH,code,halcyon-java-snakeyaml-unsafe-constructor,,,,src/main/java/com/halcyon/ota/manifest/ManifestParser.java,14,new Yaml() uses the default Constructor which can instantiate arbitrary classes
+ota-campaign-service,java,semgrep,HIGH,code,palmtree-java-snakeyaml-unsafe-constructor,,,,src/main/java/com/palmtree/ota/manifest/ManifestParser.java,14,new Yaml() uses the default Constructor which can instantiate arbitrary classes
 ota-campaign-service,java,trivy,HIGH,dependency,CVE-2020-36518,com.fasterxml.jackson.core:jackson-databind,2.13.2,"2.13.2.1, 2.12.6.1",pom.xml,,jackson-databind: denial of service via a large depth of nested objects
 ota-campaign-service,java,trivy,HIGH,dependency,CVE-2022-1471,org.yaml:snakeyaml,1.33,2.0,pom.xml,,SnakeYaml: Constructor Deserialization Remote Code Execution
 ota-campaign-service,java,trivy,HIGH,dependency,CVE-2022-42003,com.fasterxml.jackson.core:jackson-databind,2.13.2,"2.12.7.1, 2.13.4.2",pom.xml,,jackson-databind: deep wrapper array nesting wrt UNWRAP_SINGLE_VALUE_ARRAYS
@@ -62,7 +62,7 @@ ota-campaign-service,java,trivy,CRITICAL,dependency,CVE-2026-65182,org.apache.to
 ota-campaign-service,java,trivy,CRITICAL,dependency,CVE-2026-65905,org.apache.tomcat.embed:tomcat-embed-core,10.1.15,"11.0.25, 10.1.58, 9.0.121",pom.xml,,tomcat: Apache Tomcat: Authentication bypass via limited replay attack in DIGEST authenticator
 ota-campaign-service,java,trivy,CRITICAL,dependency,CVE-2026-68525,org.apache.tomcat.embed:tomcat-embed-core,10.1.15,"11.0.25, 10.1.58, 9.0.121",pom.xml,,org.apache.tomcat/tomcat: Apache Tomcat: Unauthorized resource access via FORM authentication bypass
 ota-campaign-service,java,trivy,HIGH,dependency,GHSA-r7wm-3cxj-wff9,com.fasterxml.jackson.core:jackson-core,2.15.3,"2.18.8, 2.21.4",pom.xml,,jackson-core: Async parser maxNumberLength bypass via chunked digit accumulation (incomplete fix for GHSA-72hv-8253-57qq
-owner-portal-bff,typescript,semgrep,HIGH,code,halcyon-ts-jwt-verify-no-algorithms,,,,src/auth.ts,20,jwt
+owner-portal-bff,typescript,semgrep,HIGH,code,palmtree-ts-jwt-verify-no-algorithms,,,,src/auth.ts,20,jwt
 owner-portal-bff,typescript,trivy,HIGH,dependency,CVE-2020-8203,lodash,4.17.15,4.17.19,package-lock.json,,nodejs-lodash: prototype pollution in zipObjectDeep function
 owner-portal-bff,typescript,trivy,HIGH,dependency,CVE-2021-23337,lodash,4.17.15,4.17.21,package-lock.json,,nodejs-lodash: command injection via template
 owner-portal-bff,typescript,trivy,HIGH,dependency,CVE-2021-3749,axios,0.21.1,0.21.2,package-lock.json,,nodejs-axios: Regular expression denial of service in trim function
@@ -81,15 +81,15 @@ owner-portal-bff,typescript,trivy,HIGH,dependency,CVE-2026-44496,axios,0.21.1,"1
 owner-portal-bff,typescript,trivy,HIGH,dependency,CVE-2026-47219,find-my-way,8.2.2,9.7.0,package-lock.json,,find-my-way: find-my-way: Denial of Service vulnerability in HTTP/2 server
 owner-portal-bff,typescript,trivy,HIGH,dependency,CVE-2026-4800,lodash,4.17.15,4.18.0,package-lock.json,,lodash: lodash: Arbitrary code execution via untrusted input in template imports
 owner-portal-bff,typescript,trivy,HIGH,dependency,NSWG-ECO-516,lodash,4.17.15,>=4.17.19,package-lock.json,,Allocation of Resources Without Limits or Throttling
-service-appointments-api,go,semgrep,HIGH,code,halcyon-go-jwt-no-alg-check,,,,internal/auth/owner_token.go,31,JWT parsed without verifying the signing method
+service-appointments-api,go,semgrep,HIGH,code,palmtree-go-jwt-no-alg-check,,,,internal/auth/owner_token.go,31,JWT parsed without verifying the signing method
 service-appointments-api,go,trivy,HIGH,dependency,CVE-2022-32149,golang.org/x/text,v0.3.7,0.3.8,go.mod,,golang: golang.org/x/text/language: ParseAcceptLanguage takes a long time to parse complex tags
 service-appointments-api,go,trivy,HIGH,dependency,CVE-2026-56852,golang.org/x/text,v0.3.7,0.39.0,go.mod,,golang.org/x/text: golang.org/x/text: Denial of Service via invalid UTF-8 input
-telemetry-quality-checks,python,semgrep,HIGH,code,halcyon-py-yaml-load-no-loader,,,,tqc/rules.py,18,yaml
+telemetry-quality-checks,python,semgrep,HIGH,code,palmtree-py-yaml-load-no-loader,,,,tqc/rules.py,18,yaml
 telemetry-quality-checks,python,semgrep,HIGH,code,subprocess-shell-true,,,,tqc/report.py,24,Found 'subprocess' function 'run' with 'shell=True'
 telemetry-quality-checks,python,trivy,CRITICAL,dependency,CVE-2020-14343,PyYAML,5.3,5.4,requirements.txt,,PyYAML: incomplete fix for CVE-2020-1747
 telemetry-quality-checks,python,trivy,CRITICAL,dependency,CVE-2020-1747,PyYAML,5.3,5.3.1,requirements.txt,,PyYAML: arbitrary command execution through python/object/new when FullLoader is used
 vin-registry-service,go,semgrep,HIGH,code,detected-bcrypt-hash,,,,cmd/server/main.go,58,bcrypt hash detected
-vin-registry-service,go,semgrep,HIGH,code,halcyon-go-sql-string-concat,,,,internal/registry/store.go,82,SQL query built with string concatenation
+vin-registry-service,go,semgrep,HIGH,code,palmtree-go-sql-string-concat,,,,internal/registry/store.go,82,SQL query built with string concatenation
 vin-registry-service,go,trivy,HIGH,dependency,CVE-2022-3064,gopkg.in/yaml.v2,v2.2.2,2.2.4,go.mod,,go-yaml: Improve heuristics preventing CPU/memory abuse by parsing malicious or large YAML documents
 vin-registry-service,go,trivy,HIGH,dependency,CVE-2024-45337,golang.org/x/crypto,v0.14.0,0.31.0,go.mod,,golang.org/x/crypto/ssh: Misuse of ServerConfig.PublicKeyCallback may cause authorization bypass in golang.org/x/crypto
 vin-registry-service,go,trivy,HIGH,dependency,CVE-2025-22869,golang.org/x/crypto,v0.14.0,0.35.0,go.mod,,golang.org/x/crypto/ssh: Denial of Service in the Key Exchange of golang.org/x/crypto/ssh
@@ -104,8 +104,8 @@ vin-registry-service,go,trivy,HIGH,dependency,CVE-2026-42508,golang.org/x/crypto
 vin-registry-service,go,trivy,HIGH,dependency,CVE-2026-46595,golang.org/x/crypto,v0.14.0,0.52.0,go.mod,,golang.org/x/crypto/ssh: golang.org/x/crypto/ssh: Authorization bypass due to skipped source-address validation
 vin-registry-service,go,trivy,HIGH,dependency,CVE-2026-46597,golang.org/x/crypto,v0.14.0,0.52.0,go.mod,,golang.org/x/crypto/ssh: golang.org/x/crypto/ssh: Denial of Service via crafted AES-GCM packet decoder inputs
 vin-registry-service,go,trivy,HIGH,dependency,CVE-2026-56854,golang.org/x/crypto,v0.14.0,0.55.0,go.mod,,golang.org/x/crypto/ssh: golang.org/x/crypto/ssh: Authentication bypass due to unenforced source-address restrictions
-warranty-claims-api,java,semgrep,HIGH,code,halcyon-java-log4j-untrusted-input,,,,src/main/java/com/halcyon/warranty/rules/ClaimEvaluator.java,23,Untrusted request field logged through Log4j 2
-warranty-claims-api,java,semgrep,HIGH,code,halcyon-java-snakeyaml-unsafe-constructor,,,,src/main/java/com/halcyon/warranty/rules/CoverageRules.java,26,new Yaml() uses the default Constructor which can instantiate arbitrary classes
+warranty-claims-api,java,semgrep,HIGH,code,palmtree-java-log4j-untrusted-input,,,,src/main/java/com/palmtree/warranty/rules/ClaimEvaluator.java,23,Untrusted request field logged through Log4j 2
+warranty-claims-api,java,semgrep,HIGH,code,palmtree-java-snakeyaml-unsafe-constructor,,,,src/main/java/com/palmtree/warranty/rules/CoverageRules.java,26,new Yaml() uses the default Constructor which can instantiate arbitrary classes
 warranty-claims-api,java,trivy,CRITICAL,dependency,CVE-2016-1000027,org.springframework:spring-web,5.3.23,6.0.0,pom.xml,,spring: HttpInvokerServiceExporter readRemoteInvocation method untrusted java deserialization
 warranty-claims-api,java,trivy,CRITICAL,dependency,CVE-2021-44228,org.apache.logging.log4j:log4j-core,2.14.1,"2.15.0, 2.3.1, 2.12.2",pom.xml,,log4j-core: Remote code execution in Log4j 2.x when logs contain an attacker-controlled string value
 warranty-claims-api,java,trivy,CRITICAL,dependency,CVE-2021-45046,org.apache.logging.log4j:log4j-core,2.14.1,"2.16.0, 2.12.2",pom.xml,,log4j-core: DoS in log4j 2.x with thread context message pattern and context lookup pattern (incomplete fix for CVE-2021

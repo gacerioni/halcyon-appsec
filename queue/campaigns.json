@@ -245,7 +245,7 @@
     ]
   },
   {
-    "campaign": "code:halcyon-ts-jwt-verify-no-algorithms",
+    "campaign": "code:palmtree-ts-jwt-verify-no-algorithms",
     "kind": "code",
     "severity": "HIGH",
     "sla_days": 30,
@@ -261,7 +261,7 @@
       "charging-network-gateway"
     ],
     "ids": [
-      "halcyon-ts-jwt-verify-no-algorithms"
+      "palmtree-ts-jwt-verify-no-algorithms"
     ],
     "fixed_versions": []
   },
@@ -289,7 +289,7 @@
     ]
   },
   {
-    "campaign": "code:halcyon-py-yaml-load-no-loader",
+    "campaign": "code:palmtree-py-yaml-load-no-loader",
     "kind": "code",
     "severity": "HIGH",
     "sla_days": 30,
@@ -305,12 +305,12 @@
       "fleet-diagnostics-jobs"
     ],
     "ids": [
-      "halcyon-py-yaml-load-no-loader"
+      "palmtree-py-yaml-load-no-loader"
     ],
     "fixed_versions": []
   },
   {
-    "campaign": "code:halcyon-java-snakeyaml-unsafe-constructor",
+    "campaign": "code:palmtree-java-snakeyaml-unsafe-constructor",
     "kind": "code",
     "severity": "HIGH",
     "sla_days": 30,
@@ -326,7 +326,7 @@
       "warranty-claims-api"
     ],
     "ids": [
-      "halcyon-java-snakeyaml-unsafe-constructor"
+      "palmtree-java-snakeyaml-unsafe-constructor"
     ],
     "fixed_versions": []
   },
@@ -550,7 +550,7 @@
     ]
   },
   {
-    "campaign": "code:halcyon-py-hardcoded-service-token",
+    "campaign": "code:palmtree-py-hardcoded-service-token",
     "kind": "code",
     "severity": "HIGH",
     "sla_days": 30,
@@ -565,7 +565,7 @@
       "fleet-diagnostics-jobs"
     ],
     "ids": [
-      "halcyon-py-hardcoded-service-token"
+      "palmtree-py-hardcoded-service-token"
     ],
     "fixed_versions": []
   },
@@ -606,7 +606,7 @@
     ]
   },
   {
-    "campaign": "code:halcyon-go-jwt-no-alg-check",
+    "campaign": "code:palmtree-go-jwt-no-alg-check",
     "kind": "code",
     "severity": "HIGH",
     "sla_days": 30,
@@ -621,7 +621,7 @@
       "service-appointments-api"
     ],
     "ids": [
-      "halcyon-go-jwt-no-alg-check"
+      "palmtree-go-jwt-no-alg-check"
     ],
     "fixed_versions": []
   },
@@ -658,7 +658,7 @@
     "fixed_versions": []
   },
   {
-    "campaign": "code:halcyon-go-sql-string-concat",
+    "campaign": "code:palmtree-go-sql-string-concat",
     "kind": "code",
     "severity": "HIGH",
     "sla_days": 30,
@@ -669,7 +669,7 @@
     "repos_without_tests": [],
     "repos_without_owner": [],
     "ids": [
-      "halcyon-go-sql-string-concat"
+      "palmtree-go-sql-string-concat"
     ],
     "fixed_versions": []
   },
@@ -692,7 +692,7 @@
     ]
   },
   {
-    "campaign": "code:halcyon-java-log4j-untrusted-input",
+    "campaign": "code:palmtree-java-log4j-untrusted-input",
     "kind": "code",
     "severity": "HIGH",
     "sla_days": 30,
@@ -707,7 +707,7 @@
       "warranty-claims-api"
     ],
     "ids": [
-      "halcyon-java-log4j-untrusted-input"
+      "palmtree-java-log4j-untrusted-input"
     ],
     "fixed_versions": []
   }

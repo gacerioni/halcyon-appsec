@@ -9,7 +9,7 @@ mkdir -p .after report
 : > report/tests_after.txt
 
 for name in $(python3 -c "import yaml;print(' '.join(r['name'] for r in yaml.safe_load(open('repos.yaml'))['repos']))"); do
-  repo="halcyon-$name"
+  repo="palmtree-$name"
   dst=".after/$repo"
   if [ ! -d "$dst/.git" ]; then
     git clone -q "https://github.com/$ORG/$repo" "$dst"

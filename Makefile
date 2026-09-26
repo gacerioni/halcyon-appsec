@@ -4,7 +4,7 @@ PY := python3
 .PHONY: help clone scan triage prompt kickoff status after reset baseline
 
 help:
-	@echo "make clone      clone the 8 halcyon-* service repos next to this Makefile"
+	@echo "make clone      clone the 8 palmtree-* service repos next to this Makefile"
 	@echo "make scan       run Trivy + Semgrep over every repo -> queue/findings.csv"
 	@echo "make triage     group findings into campaigns -> table + queue/campaigns.json"
 	@echo "make prompt     render the playbook for one repo, to paste into Devin (REPO=vin-registry-service [CAMPAIGN=dep:PyYAML])"
@@ -15,7 +15,7 @@ help:
 	@echo "make baseline   tag current main of every repo as demo-baseline (do once)"
 
 ORG := $(shell $(PY) -c "import yaml;print(yaml.safe_load(open('repos.yaml'))['github_org'])")
-REPOS := $(shell $(PY) -c "import yaml;print(' '.join('halcyon-'+r['name'] for r in yaml.safe_load(open('repos.yaml'))['repos']))")
+REPOS := $(shell $(PY) -c "import yaml;print(' '.join('palmtree-'+r['name'] for r in yaml.safe_load(open('repos.yaml'))['repos']))")
 
 clone:
 	@for r in $(REPOS); do [ -d $$r/.git ] || git clone -q https://github.com/$(ORG)/$$r $$r; done

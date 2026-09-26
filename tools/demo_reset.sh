@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # Puts every service repo back to its baseline: closes open devin/* PRs, deletes devin/* branches,
 # resets origin/main to the demo-baseline tag. Clears local after/ checkouts and report outputs.
-# Requires gh authenticated for the org in repos.yaml. Never touches anything outside halcyon-* repos.
+# Requires gh authenticated for the org in repos.yaml. Never touches anything outside palmtree-* repos.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 ORG=$(python3 -c "import yaml;print(yaml.safe_load(open('repos.yaml'))['github_org'])")
 
 for name in $(python3 -c "import yaml;print(' '.join(r['name'] for r in yaml.safe_load(open('repos.yaml'))['repos']))"); do
-  repo="halcyon-$name"
+  repo="palmtree-$name"
   dir="$repo"
   [ -d "$dir/.git" ] || { echo "$repo: no local checkout, skipping"; continue; }
   git -C "$dir" fetch -q --prune --tags origin

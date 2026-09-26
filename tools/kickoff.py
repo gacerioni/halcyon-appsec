@@ -50,8 +50,8 @@ def findings_table(rows: list[dict]) -> str:
 def render(repo: dict, org: str, rows: list[dict], campaign: str | None) -> str:
     slug = re.sub(r"[^a-z0-9]+", "-", (campaign or "all-findings").lower()).strip("-")
     return (PLAYBOOK.read_text()
-            .replace("{{REPO_URL}}", f"https://github.com/{org}/halcyon-{repo['name']}")
-            .replace("{{CONTROL_REPO_URL}}", f"https://github.com/{org}/halcyon-appsec")
+            .replace("{{REPO_URL}}", f"https://github.com/{org}/palmtree-{repo['name']}")
+            .replace("{{CONTROL_REPO_URL}}", f"https://github.com/{org}/palmtree-appsec")
             .replace("{{LANGUAGE}}", repo["language"])
             .replace("{{TEST_CMD}}", repo["test_cmd"])
             .replace("{{CAMPAIGN_SLUG}}", slug)
@@ -107,7 +107,7 @@ def main() -> int:
             print(f"{name}: no open findings, skipping", file=sys.stderr)
             continue
         prompt = render(repos[name], org, mine, args.campaign)
-        title = f"[Halcyon appsec] {args.campaign or 'remediation'}: {name}"
+        title = f"[Palm Tree appsec] {args.campaign or 'remediation'}: {name}"
         if args.dry_run:
             print(f"=== {title}\n{prompt}\n")
             continue

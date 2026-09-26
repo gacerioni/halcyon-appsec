@@ -35,5 +35,5 @@ jobs:
       - name: Semgrep (code)
         if: ${{ !cancelled() }}
         run: |
-          curl -sSfL https://raw.githubusercontent.com/gacerioni/halcyon-appsec/main/rules/halcyon-appsec.yml -o /tmp/halcyon-appsec.yml
-          pipx run semgrep scan --config /tmp/halcyon-appsec.yml --config p/typescript --config p/secrets --severity ERROR --error --metrics=off .
+          curl -sSfL https://raw.githubusercontent.com/gacerioni/palmtree-appsec/main/rules/palmtree-appsec.yml -o /tmp/palmtree-appsec.yml
+          pipx run semgrep scan --config /tmp/palmtree-appsec.yml --config p/typescript --config p/secrets --severity ERROR --error --metrics=off .

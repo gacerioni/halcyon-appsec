@@ -1,5 +1,5 @@
 # service repos are separate git repositories cloned next to this Makefile
-halcyon-*/
+palmtree-*/
 .after/
 .demo-state/
 report/findings_after.csv
